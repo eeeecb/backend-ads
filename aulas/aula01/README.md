@@ -9,8 +9,8 @@ git clone https://github.com/usuario/repositorio/
 2. Configurar nome e email
 
 ```shell
-git config --local user.name "Nome"
-git config --local user.email "Email"
+git config --global user.name "Eduardo Barbosa"
+git config --global user.email "dudis.ecb@gmail.com"
 ```
 
 3. Verificar status do git
