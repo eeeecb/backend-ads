@@ -1,35 +1,24 @@
-const require = require('supertest');
-const app = require('./index');
+const supertest = require("supertest");
+const app = require("./index");
 
-function supertest() {
-  return require(app);
-}
+const request = supertest(app);
 
-describe('GET /', () => {
-    it('should return 200 OK', async () => {
-    const response = await supertest().get('/');
-    expect(response.status  === 200);
-  });
+test("Deve retornar 200 no GET /", async function () {
+  const response = await request.get("/");
+  expect(response.status).toBe(200);
+});
 
-  describe('POST /', () => {
-    it('should return 201 Not Found', async () => {
-      const response = await supertest().post('/');
-      expect(response.status === 201);
-    });
-  });
+test("Deve retornar 201 no POST /", async function () {
+  const response = await request.post("/");
+  expect(response.status).toBe(201);
+});
 
-  describe('PUT /', () => { 
-    it('should return 200 OK', async () => {
-      const response = await supertest().put('/');
-      expect(response.status === 200);
-    });
-  });
+test("Deve retornar 200 no PUT /", async function () {
+  const response = await request.put("/");
+  expect(response.status).toBe(200);
+});
 
-  describe('DELETE /', () => {
-    it('should return 204 No Content', async () => {
-      const response = await supertest().delete('/');
-      expect(response.status === 204);
-    });
-  });
-
-  
+test("Deve retornar 204 no DELETE /", async function () {
+  const response = await request.delete("/");
+  expect(response.status).toBe(204);
+});
